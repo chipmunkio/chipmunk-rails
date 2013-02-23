@@ -1,4 +1,13 @@
 Chipmunk::Application.routes.draw do
+  
+  namespace :api do
+    resources :items do
+      collection do
+        get 'query'
+      end
+    end
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
