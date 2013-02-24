@@ -4,7 +4,8 @@ class Item < ActiveRecord::Base
   belongs_to :details, :polymorphic => true  
   
   default_scope select("id, name, minutes, img_url, details_type")
-   
+  default_scope order("minutes DESC, RANDOM()")
+  
   scope :minutes, :location
    
   def self.minutes(minutes = nil)
