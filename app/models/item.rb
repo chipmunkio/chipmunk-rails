@@ -3,8 +3,18 @@ class Item < ActiveRecord::Base
   
   belongs_to :details, :polymorphic => true  
   
-  def self.pizza
-    return "yumm"
+  default_scope select("id, name, minutes, img_url, details_type")
+   
+  scope :minutes, :location
+   
+  def self.minutes(minutes = nil)
+    unless minutes.nil?
+      where("minutes <= ?", minutes)
+    end
+  end
+  
+  def self.location(latitude, longitude)
+    
   end
   
 end

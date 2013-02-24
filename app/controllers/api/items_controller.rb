@@ -1,6 +1,8 @@
 class Api::ItemsController < ApplicationController
   def query 
-    @items = Item.find(:all, :select => "id, name, minutes, img_url, details_type")
+    #@items = Item.find(:all, :select => "id, name, minutes, img_url, details_type")
+    
+    @items = Item.minutes(params[:minutes])
     render :json => @items
   end
   
