@@ -11,10 +11,10 @@ class Item < ActiveRecord::Base
   scope :page
   
   def self.page(page_num = 1)
-    page_num = page_num.to_i
     if page_num.nil?
       page_num = 0
     else
+      page_num = page_num.to_i
       page_num = page_num - 1
     end
     offset_num = 10*page_num
