@@ -31,6 +31,8 @@ end
 gem 'jquery-rails'
 
 gem 'geocoder'
+# gem 'paperclip'
+# gem 'aws-sdk'
 
 
 # To use ActiveModel has_secure_password

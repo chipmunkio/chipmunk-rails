@@ -1,5 +1,7 @@
 class Item < ActiveRecord::Base
-  attr_accessible :name, :minutes, :img_url, :details_id, :details_type
+  attr_accessible :name, :minutes, :img_url, :image, :details_id, :details_type
+  
+  #has_attached_file :image, :styles => { :full => "310x148>" }, :default_url => "/images/:style/missing.png"
   
   belongs_to :details, :polymorphic => true  
   
