@@ -15,7 +15,7 @@ class Api::ItemsController < ApplicationController
         elsif x.details_id == 'link'
             details = Link.find(x.details_id)
         end
-        x.merge(details)
+        x.merge(details.attributes)
     }
 =end
             
