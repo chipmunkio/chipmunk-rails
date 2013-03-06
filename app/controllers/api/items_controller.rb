@@ -3,6 +3,22 @@ class Api::ItemsController < ApplicationController
     #@items = Item.find(:all, :select => "id, name, minutes, img_url, details_type")
     
     @items = Item.page(params[:page]).minutes(params[:minutes])
+
+# the below block should join the details into the item
+# I could not test because rails is not completely setup 
+# on my computer -AC
+=begin
+    @items.map! { |x|
+        details = {}
+        if x.details_id == 'venue'
+            details = Venue.find(x.details_id)
+        elsif x.details_id == 'link'
+            details = Link.find(x.details_id)
+        end
+        x.merge(details)
+    }
+=end
+            
     render :json => @items
   end
   
