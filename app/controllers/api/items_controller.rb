@@ -7,17 +7,12 @@ class Api::ItemsController < ApplicationController
 # the below block should join the details into the item
 # I could not test because rails is not completely setup 
 # on my computer -AC
-=begin
+#=begin
     @items.map! { |x|
-        details = {}
-        if x.details_id == 'venue'
-            details = Venue.find(x.details_id)
-        elsif x.details_id == 'link'
-            details = Link.find(x.details_id)
-        end
+        details = x.details
         x.merge(details)
     }
-=end
+#=end
             
     render :json => @items
   end
