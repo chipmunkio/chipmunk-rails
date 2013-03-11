@@ -4,7 +4,8 @@ class CreateItems < ActiveRecord::Migration
       t.string :name
       t.integer :minutes
       t.string :img_url
-      t.references :details, :polymorphic => true
+      t.string :details_type
+
       t.timestamps
     end
   end

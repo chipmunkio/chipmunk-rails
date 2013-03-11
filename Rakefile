@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Chipmunk::Application.load_tasks
+Spare::Application.load_tasks

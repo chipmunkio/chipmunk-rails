@@ -1,7 +1,4 @@
 class Link < ActiveRecord::Base
-  attr_accessible :url, :link_type, :item_attributes
-  
-  has_one :item, :as => :details
-  
-  accepts_nested_attributes_for :item
+  attr_accessible :link_type, :url, :item_id
+  belongs_to :item, :foreign_key => "item_id"
 end
