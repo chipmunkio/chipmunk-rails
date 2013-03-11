@@ -8,9 +8,20 @@ class Api::ItemsController < ApplicationController
 # I could not test because rails is not completely setup 
 # on my computer -AC
 =begin
+<<<<<<< HEAD
     @items.each { |x|
         details = x.details
         x.merge(details)
+=======
+    @items.map! { |x|
+        details = {}
+        if x.details_id == 'venue'
+            details = Venue.find(x.details_id)
+        elsif x.details_id == 'link'
+            details = Link.find(x.details_id)
+        end
+        x.merge(details.attributes)
+>>>>>>> 975cc58e6014ba3bf529c1ca71595d13f2b82ba4
     }
 =end
             
