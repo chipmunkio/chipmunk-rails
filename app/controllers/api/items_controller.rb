@@ -27,6 +27,37 @@ class Api::ItemsController < ApplicationController
             
     render :json => @items
   end
+
+  def index
+    @items = Item.find_by_sql(
+        'SELECT name, minutes, img_url, details_type, url, link_type,
+                address, latitude, longitude FROM (
+                    SELECT  "items".name as name,
+                            "items".minutes as minutes,
+                            "items".img_url as img_url,
+                            "items".details_type as details_type,
+                            "links".url as url,
+                            "links".link_type as link_type,
+                            NULL as address,
+                            NULL as latitude,
+                            NULL as longitude FROM "items"
+                    INNER JOIN "links" ON "items".details_id="links".id
+                    UNION
+                    SELECT  "items".name as name,
+                            "items".minutes as minutes,
+                            "items".img_url as img_url,
+                            "items".details_type as details_type,
+                            NULL as link_url,
+                            NULL as link_type,
+                            "venues".address as address,
+                            "venues".latitude,
+                            "venues".longitude FROM "items"
+                    INNER JOIN "venues" ON "items".details_id="venues".id
+        ) a
+        ORDER BY minutes DESC, RANDOM()')
+
+    render :json => @items
+  end
   
   def show
     @item = Item.find params[:id]
@@ -51,3 +82,4 @@ class Api::ItemsController < ApplicationController
     redirect_to :back
   end
 end
+

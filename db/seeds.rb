@@ -10,6 +10,7 @@ Item i = Item.create(details_type: 'venue', img_url:
 'http://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Ruby_on_Rails.svg/150px-Ruby_on_Rails.svg.png',
 minutes: 30, name: "Amadou's House")
 
+<<<<<<< HEAD
 Venue v = Venue.create(address: '999 Lindsey Manor Lane Silver Spring MD 20905',
 latitude: 109.89, longitude: -29.434, item_id: i.id)
 
@@ -19,3 +20,7 @@ minutes: 45, name: 'Googley')
 
 Link l = Link.create(link_type: 'Video',
 url:'http://vimeo.com/channels/staffpicks/60043114', item_id: i2.id) 
+=======
+l = Link.create(:url => "http://netspencer.com")
+Item.create(:name => "Spencer's website", :minutes => 10, :details_type => "Link", :details_id => l.id)
+>>>>>>> 70ae041da045d7a67ebbdf61a37f63c0f4d39f19
