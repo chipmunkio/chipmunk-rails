@@ -9,6 +9,7 @@ Chipmunk::Application.routes.draw do
   end
   
   match "test" => "test#index"
+  match "read" => "test#read"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

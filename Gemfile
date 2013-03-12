@@ -31,6 +31,8 @@ end
 gem 'jquery-rails'
 
 gem 'geocoder'
+gem 'readit'
+
 # gem 'paperclip'
 # gem 'aws-sdk'
 

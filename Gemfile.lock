@@ -43,6 +43,7 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     geocoder (1.1.6)
+    hashie (2.0.2)
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -56,6 +57,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.21)
     multi_json (1.6.1)
+    oauth (0.4.7)
     pg (0.11.0)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -83,6 +85,10 @@ GEM
     rake (10.0.3)
     rdoc (3.12.1)
       json (~> 1.4)
+    readit (0.0.9)
+      hashie
+      multi_json
+      oauth
     sass (3.2.6)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -118,6 +124,7 @@ DEPENDENCIES
   json
   pg
   rails
+  readit
   sass-rails (~> 3.2.3)
   sqlite3
   thin

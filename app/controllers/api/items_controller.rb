@@ -1,9 +1,6 @@
 class Api::ItemsController < ApplicationController
-  def query 
-    #@items = Item.find(:all, :select => "id, name, minutes, img_url, details_type")
-    
-    @items = Item.page(params[:page]).minutes(params[:minutes]).location(42.406056, -71.120923).distance(5)
-    #@items = Venue.near("94301")
+  def query     
+    @items = Item.page(params[:page]).item_type("Link").minutes(params[:minutes])
     
     render :json => @items
   end
@@ -16,7 +13,6 @@ class Api::ItemsController < ApplicationController
   
   def new
     @link = Link.new
-    @link.build_item
     
     @venue = Venue.new
     @venue.build_item
@@ -26,6 +22,7 @@ class Api::ItemsController < ApplicationController
     if (params[:link])
       Link.create params[:link]
     elsif (params[:venue])
+      params[:venue][:item_attribute][:item_type] = "Venue"
       Venue.create params[:venue]
     end
     redirect_to :back

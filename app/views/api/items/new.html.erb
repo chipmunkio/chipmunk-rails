@@ -3,20 +3,9 @@ NEW LINK
 ==========
 <br><br>
 <%= form_for @link, :url => { :action => "create" } do |f| %>
-  <%= f.fields_for :item do |i| %>
-    <%= i.label :name %>
-    <%= i.text_field :name %>
-    <br>
-    <%= i.label :minutes %>
-    <%= i.text_field :minutes %>
-    <br>
-  <% end %>
   <%= f.label :url %>
   <%= f.text_field :url %>
   <br>  
-  <%= f.label :link_type %>
-  <%= f.text_field :link_type %>
-  <br>
   <%= f.submit "Create" %>
 <% end %>
 
@@ -30,9 +19,6 @@ NEW VENUE
   <%= f.fields_for :item do |i| %>
     <%= i.label :name %>
     <%= i.text_field :name %>
-    <br>
-    <%= i.label :minutes %>
-    <%= i.text_field :minutes %>
     <br>
   <% end %>
   <%= f.label :address %>

@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(:version => 20130223231654) do
   create_table "items", :force => true do |t|
     t.string   "item_type"
     t.string   "name"
-    t.integer  "minutes"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -24,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20130223231654) do
     t.integer  "item_id"
     t.string   "link_type"
     t.string   "url"
+    t.integer  "word_count"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
