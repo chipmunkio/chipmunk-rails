@@ -1,6 +1,6 @@
 class Api::ItemsController < ApplicationController
   def query     
-    @items = Item.page(params[:page]).item_type("Link").minutes(params[:minutes])
+    @items = Item.page(params[:page]).item_type("Link").minutes(params[:minutes]).reading_speed(200)
     
     render :json => @items
   end

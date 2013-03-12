@@ -9,7 +9,7 @@ class Item < ActiveRecord::Base
   accepts_nested_attributes_for :venue
       
   default_scope select("items.id AS id, items.name, items.item_type, venues.address, venues.latitude, venues.longitude, links.url, links.link_type, links.word_count")
-  default_scope select("((links.word_count / 250) + 1) AS minutes")
+  #default_scope select("((links.word_count / 250) + 1) AS minutes")
   default_scope order("minutes DESC, RANDOM()")
   default_scope joins("LEFT OUTER JOIN Venues ON venues.item_id = items.id")
   default_scope joins("LEFT OUTER JOIN Links ON links.item_id = items.id")
