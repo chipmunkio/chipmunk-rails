@@ -32,6 +32,7 @@ gem 'jquery-rails'
 
 gem 'geocoder'
 gem 'readit'
+gem 'will_paginate'
 
 # gem 'paperclip'
 # gem 'aws-sdk'

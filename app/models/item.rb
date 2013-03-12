@@ -9,24 +9,14 @@ class Item < ActiveRecord::Base
   accepts_nested_attributes_for :venue
       
   default_scope select("items.id AS id, items.name, items.item_type, venues.address, venues.latitude, venues.longitude, links.url, links.link_type, links.word_count")
-  #default_scope select("((links.word_count / 250) + 1) AS minutes")
-  default_scope order("minutes DESC, RANDOM()")
+  default_scope select("((links.word_count / 200) + 1) AS minutes")
+  #default_scope select("5 as minutes")
+  default_scope order("((links.word_count / 200) + 1) DESC, RANDOM()")
   default_scope joins("LEFT OUTER JOIN Venues ON venues.item_id = items.id")
   default_scope joins("LEFT OUTER JOIN Links ON links.item_id = items.id")
-        
-  def self.page(page_num = 1)
-    if page_num.nil?
-      page_num = 0
-    else
-      page_num = page_num.to_i
-      page_num = page_num - 1
-    end
-    offset_num = 10*page_num
-    limit(10).offset(offset_num)
-  end
-   
+           
   def self.minutes(minutes)
-    where("minutes <= ?", minutes.to_i)
+    where("((links.word_count / 200) + 1) <= ?", minutes.to_i)
   end
   
   def self.location(latitude, longitude)
