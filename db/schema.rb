@@ -13,16 +13,15 @@
 ActiveRecord::Schema.define(:version => 20130223231654) do
 
   create_table "items", :force => true do |t|
+    t.string   "item_type"
     t.string   "name"
     t.integer  "minutes"
-    t.string   "img_url"
-    t.integer  "details_id"
-    t.string   "details_type"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "links", :force => true do |t|
+    t.integer  "item_id"
     t.string   "link_type"
     t.string   "url"
     t.datetime "created_at", :null => false
@@ -30,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20130223231654) do
   end
 
   create_table "venues", :force => true do |t|
+    t.integer  "item_id"
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"

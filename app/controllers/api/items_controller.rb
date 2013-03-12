@@ -2,7 +2,9 @@ class Api::ItemsController < ApplicationController
   def query 
     #@items = Item.find(:all, :select => "id, name, minutes, img_url, details_type")
     
-    @items = Item.page(params[:page]).minutes(params[:minutes])
+    @items = Item.page(params[:page]).minutes(params[:minutes]).location(42.406056, -71.120923).distance(5)
+    #@items = Venue.near("94301")
+    
     render :json => @items
   end
   

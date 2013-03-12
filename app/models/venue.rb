@@ -1,7 +1,8 @@
 class Venue < ActiveRecord::Base
   attr_accessible :address, :latitude, :longitude, :item_attributes
   
-  has_one :item, :as => :details
+  belongs_to :item
+  
   geocoded_by :address
   after_validation :geocode
   
