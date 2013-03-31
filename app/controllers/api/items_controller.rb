@@ -1,5 +1,6 @@
 class Api::ItemsController < ApplicationController
-  def query     
+  def query
+    Item.reading_speed = 100
     @items = Item.page(params[:page]).item_type("Link").minutes(params[:minutes])
     
     render :json => @items
@@ -11,6 +12,11 @@ class Api::ItemsController < ApplicationController
     #@item = Item.find params[:id]
   end
   
+  def last 
+    @item = Item.first
+    render :json => @item
+  end
+  
   def new
     @link = Link.new
     
@@ -20,10 +26,10 @@ class Api::ItemsController < ApplicationController
   
   def create
     if (params[:link])
-      Link.create params[:link]
+      creation = Link.create params[:link]
     elsif (params[:venue])
       params[:venue][:item_attribute][:item_type] = "Venue"
-      Venue.create params[:venue]
+      creation = Venue.create params[:venue]
     end
     redirect_to :back
   end

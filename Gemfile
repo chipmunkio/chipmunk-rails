@@ -34,8 +34,8 @@ gem 'geocoder'
 gem 'readit'
 gem 'will_paginate'
 
-# gem 'paperclip'
-# gem 'aws-sdk'
+gem 'paperclip', '~> 3.0'
+gem 'aws-sdk'
 
 
 # To use ActiveModel has_secure_password

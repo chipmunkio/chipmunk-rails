@@ -5,7 +5,7 @@ class Link < ActiveRecord::Base
   
   accepts_nested_attributes_for :item
   
-  before_create :get_url_details
+  before_create :get_url_details, :if => :url_is_only_attr
   
   def get_url_details
     parser = Readit::Parser.new
@@ -19,6 +19,10 @@ class Link < ActiveRecord::Base
     item.save
     
     self.item_id = item.id
+  end
+  
+  def url_is_only_attr
+    true
   end
     
 end

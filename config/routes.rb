@@ -1,9 +1,12 @@
 Chipmunk::Application.routes.draw do
   
+  resources :image
+  
   namespace :api do
     resources :items do
       collection do
         get 'query'
+        get 'last'
       end
     end
   end
