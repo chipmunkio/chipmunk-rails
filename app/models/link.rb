@@ -1,10 +1,8 @@
 class Link < ActiveRecord::Base
-  attr_accessible :url, :link_type, :word_count, :item_attributes
+  attr_accessible :url, :link_type, :word_count, :published_at
   
   belongs_to :item
-  
-  accepts_nested_attributes_for :item
-  
+    
   /
   before_create :get_url_details, :if => :url_is_only_attr
   

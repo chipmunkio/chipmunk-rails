@@ -7,7 +7,7 @@ attribute :name
 attribute :url
 attribute :word_count
 
-child :image do
+child :image => :image do
   node :regular do |img| 
     img.asset :regular
   end

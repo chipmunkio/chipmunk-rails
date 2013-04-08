@@ -20,12 +20,6 @@ body {
   clear: both;
   display: block; }
 
-section#page {
-  width: 320px;
-  height: 480px;
-  background: #ebfce7;
-  padding-top: 20px; }
-
 article.item {
   margin: auto;
   margin-bottom: 30px;

@@ -1,6 +1,7 @@
 class ItemBuilder 
   attr_accessor :link_url
   attr_accessor :image_url
+  attr_accessor :published_at
   
   def initialize
     @item = Item.new
@@ -18,6 +19,7 @@ class ItemBuilder
     
       @link.item_id = @item.id
       @link.url = @link_url
+      @link.published_at = self.published_at || result.date_published
       @link.word_count = result.word_count
       @link.save
     

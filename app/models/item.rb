@@ -4,9 +4,9 @@ class Item < ActiveRecord::Base
   @@reading_speed = 200
     
   #belongs_to :details, :polymorphic => true  
-  has_one :link
-  has_one :venue
-  has_one :image
+  has_one :link, :dependent => :destroy
+  has_one :venue, :dependent => :destroy
+  has_one :image, :dependent => :destroy
   
   accepts_nested_attributes_for :link
   accepts_nested_attributes_for :venue

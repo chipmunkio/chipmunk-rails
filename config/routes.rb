@@ -3,7 +3,16 @@ Chipmunk::Application.routes.draw do
   resources :image
   
   namespace :api do
+    resources :feeds do 
+      member do 
+        get 'parse'
+      end
+    end
     resources :items do
+      member do 
+        get 'url'
+        get 'read'
+      end
       collection do
         get 'query'
         get 'last'

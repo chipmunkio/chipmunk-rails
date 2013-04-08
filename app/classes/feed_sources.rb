@@ -6,21 +6,25 @@ module FeedSources
         
     def initialize(entries)
       @entries = entries
-      @urls = Array.new
     end
     
     def process
       @entries.each do |entry|
-        @urls << entry.url
+        item = OpenStruct.new
+        item.url = entry.url
+        item.published = entry.published
+        add_item(item)
       end
     end
     
-    def add_items
-      @urls.each do |url|
-        item = ItemBuilder.new
-        item.link_url = url
-        item.build
-      end
+    protected
+    
+    def add_item(entry)
+      item = ItemBuilder.new
+      item.link_url = entry.url
+      item.published_at ||= entry.published
+      item.image_url ||= entry.image
+      item.build
     end
     
   end
@@ -29,8 +33,11 @@ module FeedSources
     
     def process
       @entries.each do |entry|
+        item = OpenStruct.new
         noko = Nokogiri::HTML(entry.content)
-        @urls << noko.css("a")[2]['href']
+        item.published = entry.published
+        item.url = noko.css("a")[2]['href']
+        add_item(item)
       end
     end
     
@@ -39,25 +46,16 @@ module FeedSources
   class Medium < Generic
     
     def process
-      @processed = Array.new
       @entries.each do |entry|
-        processed = Hash.new
-        noko = Nokogiri::HTML(entry.content)
-        processed[:url] = entry.url
-        processed[:image] = noko.css("img")['src']
-        @processed << processed
+        item = OpenStruct.new
+        noko = Nokogiri::HTML(entry.summary)
+        item.url = entry.url
+        item.published = entry.published
+        item.image = noko.css("img")[0]
+        add_item(item)
       end
     end
-    
-    def add_items
-      @processed.each do |processed|
-        item = ItemBuilder.new
-        item.link_url = processed[:url]
-        item.image_url = processed[:image]
-        item.build
-      end
-    end
-    
+        
   end
   
   

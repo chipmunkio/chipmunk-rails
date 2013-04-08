@@ -1,6 +1,11 @@
 class Api::ItemsController < ApplicationController
   respond_to :json, :xml
   
+  def index
+    @items = Item.unscoped.order("id DESC")
+    render "query"
+  end
+  
   def query
     @items = Item.page(params[:page]).item_type("Link").minutes(params[:minutes])
     
@@ -14,6 +19,17 @@ class Api::ItemsController < ApplicationController
   def last 
     @item = Item.first
     render :json => @item
+  end
+  
+  def url
+    @item = Item.find params[:id]
+    redirect_to @item.url
+  end
+  
+  def read
+    @item = Item.find params[:id]
+    parser = Readit::Parser.new
+    @article = parser.parse @item.url
   end
   
   def new
@@ -31,5 +47,6 @@ class Api::ItemsController < ApplicationController
       creation = Venue.create params[:venue]
     end
     redirect_to :back
-  end
+  end 
+  
 end

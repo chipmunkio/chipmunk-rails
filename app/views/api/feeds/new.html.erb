@@ -1,0 +1,13 @@
+NEW FEED
+<br>
+==========
+<br><br>
+<%= form_for @feed, :url => { :action => "create" } do |f| %>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+  <br>  
+  <%= f.label :parser %>
+  <%= f.text_field :parser %>
+  <br>
+  <%= f.submit "Add Feed" %>
+<% end %>
