@@ -23,7 +23,7 @@ class ItemBuilder
       @link.word_count = result.word_count
       @link.save
     
-      unless (result.lead_image_url.nil?)
+      unless (result.lead_image_url.nil? && self.image_url.nil?)
         @image.item_id = @item.id
         @image.image_from_url = self.image_url || result.lead_image_url
         @image.save
