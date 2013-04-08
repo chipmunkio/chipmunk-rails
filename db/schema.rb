@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130330173735) do
+ActiveRecord::Schema.define(:version => 20130408040559) do
+
+  create_table "feeds", :force => true do |t|
+    t.string   "url"
+    t.string   "parser"
+    t.datetime "last_parsed"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "images", :force => true do |t|
     t.string   "asset_file_name"

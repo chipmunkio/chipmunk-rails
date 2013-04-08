@@ -1,5 +1,6 @@
 object @item
 
+attribute :id
 attribute :item_type
 attribute :minutes
 attribute :name

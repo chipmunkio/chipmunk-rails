@@ -37,8 +37,11 @@ gem 'will_paginate'
 gem 'paperclip', '~> 3.0'
 gem 'aws-sdk'
 
+gem 'resque'
 gem 'rabl'
 gem 'oj'
+gem 'nokogiri'
+gem 'feedzirra'
 
 
 # To use ActiveModel has_secure_password
