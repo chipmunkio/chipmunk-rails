@@ -1,4 +1,9 @@
 development:
-  consumer_key: netspencer
-  consumer_secret: eDLN6hB2W5ebc8mFSzS3QvUB2tWQPupw
-  parser_token: adda81eec66d20f4d4f341c0985b1afd46e66ac2
+    consumer_key: netspencer
+    consumer_secret: eDLN6hB2W5ebc8mFSzS3QvUB2tWQPupw
+    parser_token: adda81eec66d20f4d4f341c0985b1afd46e66ac2
+  
+production:
+    consumer_key: netspencer
+    consumer_secret: eDLN6hB2W5ebc8mFSzS3QvUB2tWQPupw
+    parser_token: adda81eec66d20f4d4f341c0985b1afd46e66ac2
