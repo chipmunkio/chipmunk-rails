@@ -7,6 +7,9 @@ class Feed < ActiveRecord::Base
     parser.fetch
     parser.parse
     parser.add_items
+    
+    self.last_parsed = Time.now
+    self.save
   end
   
 end

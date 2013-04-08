@@ -14,17 +14,12 @@ class FeedParser
   end
   
   def parse
-    source = "FeedSources::#{@parser_type}".constantize.new(@results.entries)
-    source.process
-    @urls = source.urls
+    @source = "FeedSources::#{@parser_type}".constantize.new(@results.entries)
+    @source.process
   end
     
   def add_items
-    @urls.each do |url|
-      item = ItemBuilder.new
-      item.link_url = url
-      item.build
-    end
+    @source.add_items
   end
   
 end

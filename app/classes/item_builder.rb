@@ -1,5 +1,6 @@
 class ItemBuilder 
   attr_accessor :link_url
+  attr_accessor :image_url
   
   def initialize
     @item = Item.new
@@ -22,7 +23,7 @@ class ItemBuilder
     
       unless (result.lead_image_url.nil?)
         @image.item_id = @item.id
-        @image.image_from_url result.lead_image_url
+        @image.image_from_url = self.image_url || result.lead_image_url
         @image.save
       end
     end

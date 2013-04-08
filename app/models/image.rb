@@ -4,7 +4,7 @@ class Image < ActiveRecord::Base
   
   belongs_to :item
   
-  def image_from_url(url) 
+  def image_from_url=(url) 
     self.asset = URI.parse(url)
   end
   
