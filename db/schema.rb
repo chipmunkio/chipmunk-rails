@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20130330173735) do
     t.string   "asset_content_type"
     t.integer  "asset_file_size"
     t.datetime "asset_updated_at"
+    t.integer  "item_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end

@@ -67,6 +67,7 @@ GEM
     multi_json (1.6.1)
     nokogiri (1.5.9)
     oauth (0.4.7)
+    oj (2.0.10)
     paperclip (3.4.1)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -75,6 +76,8 @@ GEM
       mime-types
     pg (0.11.0)
     polyglot (0.3.3)
+    rabl (0.8.2)
+      activesupport (>= 2.3.14)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -140,8 +143,10 @@ DEPENDENCIES
   geocoder
   jquery-rails
   json
+  oj
   paperclip (~> 3.0)
   pg
+  rabl
   rails
   readit
   sass-rails (~> 3.2.3)

@@ -1,15 +1,14 @@
 class Api::ItemsController < ApplicationController
+  respond_to :json, :xml
+  
   def query
-    Item.reading_speed = 100
     @items = Item.page(params[:page]).item_type("Link").minutes(params[:minutes])
     
-    render :json => @items
+    #render :json => @items
   end
   
   def show
     @item = Item.find params[:id]
-    render :json => @item
-    #@item = Item.find params[:id]
   end
   
   def last 
