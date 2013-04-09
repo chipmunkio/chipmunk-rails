@@ -1,4 +1,54 @@
-<h1><%= @item.name %></h1>
-<div class="content">
-  <%= raw @article.content %>
-</div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title><%= @item.name %></title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<link href='http://fonts.googleapis.com/css?family=Ovo|Merriweather+Sans' rel='stylesheet' type='text/css'>
+	
+	<style type="text/css">
+	  html, body {
+	    padding:0;
+	    margin:0;
+	  }
+	  body {
+	    background:#eee;
+	  }
+	  #page {
+	    margin:20px;
+	  }
+	  #page h1.article-title {
+	    display:none;
+	    font-family:"Merriweather+Sans", "Helvetica Neue", Helvetica, sans-serif;
+	  }
+	  #page div.content {
+	    font-family:"Ovo", Georgia, "Times New Roman", Times, sans-serif;
+	  }
+	  #page div.content p {
+	    line-height:1.8;
+	  }
+	  #page div.content a {
+	    color:#740004;
+	    font-weight:bold;
+	    text-decoration:none;
+	  }
+  </style>
+	
+</head>
+
+<body>
+  
+  <section id="page">
+    <h1 class="article-title"><%= @item.name %></h1>
+    <div class="content">
+      <%= raw @article.content %>
+    </div>
+  </section>
+
+</body>
+</html>

@@ -4,8 +4,12 @@ attribute :id
 attribute :item_type
 attribute :minutes
 attribute :name
-attribute :url
+attribute :url => :original_url
 attribute :word_count
+
+node :url do |item|
+  "http://chipmunk.io/api/items/#{item.id}/read"
+end
 
 child :image => :image do
   node :regular do |img| 

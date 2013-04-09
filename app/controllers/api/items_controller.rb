@@ -1,5 +1,7 @@
 class Api::ItemsController < ApplicationController
-  respond_to :json, :xml
+  respond_to :json, :xml, :html
+  
+  caches_page :read
   
   def index
     @items = Item.unscoped.order("id DESC")
@@ -30,6 +32,7 @@ class Api::ItemsController < ApplicationController
     @item = Item.find params[:id]
     parser = Readit::Parser.new
     @article = parser.parse @item.url
+    render :layout => false
   end
   
   def new
