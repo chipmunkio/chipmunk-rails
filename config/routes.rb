@@ -1,5 +1,7 @@
 Chipmunk::Application.routes.draw do
   
+  root :to => redirect("http://spareapp.com")
+  
   resources :image
   
   namespace :api do
