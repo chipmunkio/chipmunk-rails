@@ -21,21 +21,27 @@
 	  }
 	  #page {
 	    margin:20px;
+	    overflow:hidden;
 	  }
-	  #page h1.article-title {
-	    display:none;
+	  #page h1#article-title {
+	    line-height:1.5;
+	    margin:0;
+	    margin-bottom:20px;
 	    font-family:"Merriweather+Sans", "Helvetica Neue", Helvetica, sans-serif;
 	  }
-	  #page div.content {
+	  #page div#content {
+	    line-height:1.8;
 	    font-family:"Ovo", Georgia, "Times New Roman", Times, sans-serif;
 	  }
-	  #page div.content p {
-	    line-height:1.8;
+	  #page div#content p {
 	  }
-	  #page div.content a {
+	  #page div#content a {
 	    color:#740004;
 	    font-weight:bold;
 	    text-decoration:none;
+	  }
+	  #page div#content img {
+	    width:100%;
 	  }
   </style>
 	
@@ -44,8 +50,8 @@
 <body>
   
   <section id="page">
-    <h1 class="article-title"><%= @item.name %></h1>
-    <div class="content">
+    <h1 id="article-title"><%= @item.name %></h1>
+    <div id="content">
       <%= raw @article.content %>
     </div>
   </section>
