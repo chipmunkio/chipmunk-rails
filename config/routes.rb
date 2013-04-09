@@ -5,7 +5,7 @@ Chipmunk::Application.routes.draw do
   namespace :api do
     resources :feeds do 
       member do 
-        get 'parse'
+        post 'parse'
       end
     end
     resources :items do

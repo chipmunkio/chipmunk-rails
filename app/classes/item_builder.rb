@@ -9,10 +9,10 @@ class ItemBuilder
     @link = Link.new
   end
   
-  def build_link
-    result = parse_url(@link_url)
-    
+  def build_link    
     unless (Link.exists?(:url => @link_url))
+      result = parse_url(@link_url)
+      
       @item.name = result.title
       @item.item_type = "Link"
       @item.save

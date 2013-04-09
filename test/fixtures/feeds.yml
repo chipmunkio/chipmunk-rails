@@ -4,8 +4,19 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+
+one:
+    url: "http://longform.org/feed.rss"
+    parser: "Longform"
+    
+two:
+    url: "https://medium.com/feed/editors-picks"
+    parser: "Medium"
+
+three:
+    url: "http://feeds.feedburner.com/svbtle"
+    parser: "Generic"
+    
+four:
+    url: "http://www.aaronsw.com/2002/feeds/pgessays.rss"
+    parser: "Generic"

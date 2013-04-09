@@ -1,5 +1,5 @@
 class Api::FeedsController < ApplicationController
-  respond_to :json, :xml
+  respond_to :json, :xml, :html
   
   def index
     @feeds = Feed.all
@@ -13,9 +13,26 @@ class Api::FeedsController < ApplicationController
     @feed = Feed.new
   end
   
+  def edit
+    @feed = Feed.find params[:id]
+  end
+  
   def create
     @feed = Feed.create params[:feed]
-    redirect_to :back
+    redirect_to "/api/feeds"
+  end
+  
+  def update
+    @feed = Feed.find params[:id]
+    @feed.attributes = params[:feed]
+    @feed.save
+    redirect_to "/api/feeds"
+  end
+  
+  def destroy
+    @feed = Feed.find params[:id]
+    @feed.destroy
+    redirect_to "/api/feeds"
   end
   
   def parse

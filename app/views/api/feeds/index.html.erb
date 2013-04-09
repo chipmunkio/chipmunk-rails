@@ -1,0 +1,19 @@
+<%= button_to "New Feed", {:action => "new"}, :method => :get %>
+<table>
+  <tr>
+    <th>FeedURL</th>
+    <th>Parser</th>
+    <th>Last Parsed</th>
+    <th colspan="3">Actions</th>
+  </tr>
+  <% @feeds.each do |feed| %>
+  <tr>
+    <td><%= feed.url %></td>
+    <td><%= feed.parser %></td>
+    <td><%= time_ago_in_words(feed.last_parsed) + " ago" unless (feed.last_parsed.nil?) %></td>
+    <td><%= button_to "Parse", {:action => "parse", :id => feed.id} %></td>
+    <td><%= button_to "Edit", {:action => "edit", :id => feed.id} %></td>
+    <td><%= button_to "Delete", {:action => "destroy", :id => feed.id }, :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
