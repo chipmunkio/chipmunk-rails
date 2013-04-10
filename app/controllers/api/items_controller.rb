@@ -4,12 +4,12 @@ class Api::ItemsController < ApplicationController
   caches_page :read
   
   def index
-    @items = Item.unscoped.order("id DESC")
+    @items = Item.unscoped.order("id DESC").limit(10)
     render "query"
   end
   
   def query
-    @items = Item.page(params[:page]).item_type("Link").minutes(params[:minutes])
+    @items = Item.page(params[:page]).item_type("Link").minutes(params[:minutes]).limit(10)
     
     #render :json => @items
   end
