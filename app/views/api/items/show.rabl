@@ -8,7 +8,7 @@ attribute :url => :original_url
 attribute :word_count
 
 node :url do |item|
-  "http://chipmunk.io/api/items/#{item.id}/read#content"
+  "http://chipmunk.io/api/items/#{item.id}/read"
 end
 
 child :image => :image do
