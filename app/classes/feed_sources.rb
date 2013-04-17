@@ -51,7 +51,7 @@ module FeedSources
         noko = Nokogiri::HTML(entry.summary)
         item.url = entry.url
         item.published = entry.published
-        item.image = noko.css("img")[0]
+        item.image ||= URI(noko.css("img")[0])
         add_item(item)
       end
     end
