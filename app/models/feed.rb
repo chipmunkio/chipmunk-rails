@@ -3,6 +3,13 @@ class Feed < ActiveRecord::Base
   
   #before_save :format_parser
   
+  def self.parse_if_not_parsed_since(time)
+    feeds = where("last_parsed < ?", time)
+    feeds.each do |feed|
+      feed.parse
+    end
+  end
+  
   def parse
     parser = FeedParser.new(self.url)
     parser.parser_type = self.parser
@@ -11,6 +18,7 @@ class Feed < ActiveRecord::Base
     self.last_parsed = Time.now
     self.save
   end
+  handle_asynchronously :parse
   
   def format_parser
     if (self.parse == "") 

@@ -38,7 +38,7 @@ class Api::FeedsController < ApplicationController
   def parse
     @feed = Feed.find params[:id]
     @feed.parse
-    redirect_to "/api/feeds/#{params[:id]}"
+    redirect_to "/api/feeds"
   end
   
 end

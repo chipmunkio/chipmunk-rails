@@ -42,6 +42,9 @@ gem 'rabl'
 gem 'oj'
 gem 'nokogiri'
 gem 'feedzirra'
+gem 'delayed_job_active_record'
+gem 'daemons'
+gem 'whenever'
 
 
 # To use ActiveModel has_secure_password
