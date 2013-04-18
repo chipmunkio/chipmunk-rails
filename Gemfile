@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'http://gemcutter.org'
 
 gem 'rails'
 
@@ -35,6 +36,7 @@ gem 'readit'
 gem 'will_paginate'
 
 gem 'paperclip', '~> 3.0'
+gem 'delayed_paperclip'
 gem 'aws-sdk'
 
 gem 'resque'
@@ -44,6 +46,7 @@ gem 'nokogiri'
 gem 'feedzirra'
 gem 'delayed_job_active_record'
 gem 'daemons'
+gem 'workless'
 gem 'whenever'
 
 

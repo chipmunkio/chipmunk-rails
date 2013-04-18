@@ -1,7 +1,7 @@
 class Feed < ActiveRecord::Base
   attr_accessible :url, :parser
   
-  #before_save :format_parser
+  before_save :format_parser
   
   def self.parse_if_not_parsed_since(time)
     feeds = where("last_parsed < ?", time)
@@ -21,7 +21,7 @@ class Feed < ActiveRecord::Base
   handle_asynchronously :parse
   
   def format_parser
-    if (self.parse == "") 
+    if (self.parser == "") 
       self.parser = "Generic"
     end
     self.parser = self.parser.camelize
