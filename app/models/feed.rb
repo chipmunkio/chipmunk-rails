@@ -4,7 +4,7 @@ class Feed < ActiveRecord::Base
   before_save :format_parser
   
   def self.parse_if_not_parsed_since(time)
-    feeds = where("last_parsed < ?", time)
+    feeds = where("last_parsed < ? or last_parsed IS NULL", time)
     feeds.each do |feed|
       feed.parse
     end

@@ -36,6 +36,7 @@ gem 'oauth-plugin'
 gem 'geocoder'
 gem 'readit'
 gem 'will_paginate'
+gem 'engtagger'
 
 gem 'paperclip', '~> 3.0'
 gem 'delayed_paperclip'

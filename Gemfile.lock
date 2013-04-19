@@ -56,6 +56,7 @@ GEM
       delayed_job (~> 3.0)
     delayed_paperclip (2.5.1.0)
       paperclip (>= 3.3.0)
+    engtagger (0.1.2)
     erubis (2.7.0)
     eventmachine (1.0.0)
     excon (0.20.1)
@@ -217,6 +218,7 @@ DEPENDENCIES
   daemons
   delayed_job_active_record
   delayed_paperclip
+  engtagger
   feedzirra
   geocoder
   jquery-rails
