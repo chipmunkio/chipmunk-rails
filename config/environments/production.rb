@@ -9,7 +9,7 @@ Chipmunk::Application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
-
+  
   # Code is not reloaded between requests
   config.cache_classes = true
 

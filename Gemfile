@@ -31,6 +31,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'oauth-plugin'
+
 gem 'geocoder'
 gem 'readit'
 gem 'will_paginate'
