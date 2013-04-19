@@ -26,6 +26,7 @@ module FeedSources
       item.image_url ||= entry.image
       item.build
     end
+    handle_asynchronously :add_item
     
   end
   

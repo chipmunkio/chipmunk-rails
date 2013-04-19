@@ -20,5 +20,5 @@
 # Learn more: http://github.com/javan/whenever
 
 every :hour do
-  runner "Feed.parse_if_not_parsed_since(1.hour.ago)"
+  runner "Feed.parse_if_not_parsed_since(45.minutes.ago)"
 end
