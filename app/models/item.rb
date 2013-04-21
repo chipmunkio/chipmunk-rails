@@ -13,7 +13,6 @@ class Item < ActiveRecord::Base
       
   default_scope select("items.id AS id, items.name, items.item_type, venues.address, venues.latitude, venues.longitude, links.url, links.link_type, links.word_count")
   default_scope select("((links.word_count / #{@@reading_speed}) + 1) AS minutes")
-  default_scope select("'http://spncr.me/NwoZ/content' AS img_url")
   #default_scope select("5 as minutes")
   default_scope order("((links.word_count / #{@@reading_speed}) + 1) DESC, RANDOM()")
   default_scope joins("LEFT OUTER JOIN Venues ON venues.item_id = items.id")
