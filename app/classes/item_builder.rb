@@ -12,9 +12,7 @@ class ItemBuilder
   def build_link    
     unless (Link.exists?(:url => @link_url))
       result = parse_url(@link_url)
-      
-      raise "URL cannot be empty" if (@link_url.nil?)
-      
+            
       @item.name = result.title
       @item.item_type = "Link"
       @item.save
