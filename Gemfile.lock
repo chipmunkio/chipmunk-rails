@@ -34,6 +34,7 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
+    bcrypt-ruby (3.0.1)
     builder (3.0.4)
     chronic (0.9.1)
     climate_control (0.0.3)
@@ -56,6 +57,11 @@ GEM
       delayed_job (~> 3.0)
     delayed_paperclip (2.5.1.0)
       paperclip (>= 3.3.0)
+    devise (2.2.4)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (~> 3.1)
+      warden (~> 1.2.1)
     engtagger (0.1.2)
     erubis (2.7.0)
     eventmachine (1.0.0)
@@ -112,6 +118,7 @@ GEM
       multi_xml (~> 0.5)
       rack (~> 1.2)
     oj (2.0.10)
+    orm_adapter (0.4.0)
     paperclip (3.4.1)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -199,6 +206,8 @@ GEM
     uuidtools (2.1.3)
     vegas (0.1.11)
       rack (>= 1.0.0)
+    warden (1.2.1)
+      rack (>= 1.0)
     whenever (0.8.2)
       activesupport (>= 2.3.4)
       chronic (>= 0.6.3)
@@ -218,6 +227,7 @@ DEPENDENCIES
   daemons
   delayed_job_active_record
   delayed_paperclip
+  devise
   engtagger
   feedzirra
   geocoder

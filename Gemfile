@@ -32,6 +32,7 @@ end
 gem 'jquery-rails'
 
 gem 'oauth-plugin'
+gem 'devise'
 
 gem 'geocoder'
 gem 'readit'
