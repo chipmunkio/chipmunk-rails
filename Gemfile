@@ -33,6 +33,7 @@ gem 'jquery-rails'
 
 gem 'oauth-plugin'
 gem 'devise'
+gem 'devise_uid'
 
 gem 'geocoder'
 gem 'readit'

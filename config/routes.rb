@@ -1,26 +1,28 @@
 Chipmunk::Application.routes.draw do
   
-  root :to => redirect("http://spareapp.com")
+  devise_for :users
+
+  root :to => "test#index"
   
   resources :image
   
-  namespace :api do
-    resources :feeds do 
-      member do 
-        post 'parse'
-      end
-    end
-    resources :items do
-      member do 
-        get 'url'
-        get 'read'
-      end
-      collection do
-        get 'query'
-        get 'last'
-      end
+  resources :feeds do 
+    member do 
+      post 'parse'
     end
   end
+  resources :items do
+    member do 
+      get 'url'
+      get 'read'
+    end
+    collection do
+      get 'query'
+      get 'last'
+    end
+  end
+  
+  match "auth" => "auth#index"
   
   match "test" => "test#index"
   match "read" => "test#read"

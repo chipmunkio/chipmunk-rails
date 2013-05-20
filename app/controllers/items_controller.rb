@@ -1,4 +1,4 @@
-class Api::ItemsController < ApplicationController
+class ItemsController < ApplicationController
   respond_to :json, :xml, :html
   
   caches_page :read

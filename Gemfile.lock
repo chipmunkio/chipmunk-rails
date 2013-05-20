@@ -62,6 +62,9 @@ GEM
       orm_adapter (~> 0.1)
       railties (~> 3.1)
       warden (~> 1.2.1)
+    devise_uid (0.0.2)
+      devise (>= 2.1.2)
+      railties (~> 3.0)
     engtagger (0.1.2)
     erubis (2.7.0)
     eventmachine (1.0.0)
@@ -228,6 +231,7 @@ DEPENDENCIES
   delayed_job_active_record
   delayed_paperclip
   devise
+  devise_uid
   engtagger
   feedzirra
   geocoder
